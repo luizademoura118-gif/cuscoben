@@ -1,51 +1,416 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pesquisa</title>
+<title>Cusco Ben</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f4f4f4;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
-
-.container {
-    max-width: 900px;
-    margin: 40px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
+/* HEADER */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  box-sizing: border-box;
+  z-index: 10;
+}
+.blue-winter {
+  font-family: 'Blue Winter', sans-serif;
+  text-transform: uppercase;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
-h1 {
+.logo strong {
+  font-family: 'Blue Winter', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #E7B53A;
+}
+
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+.sobre-link {
+  font-family: 'Blue Winter', sans-serif; /* 👈 mesma fonte */
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #E7B53A;
+  margin-left: 10px;
+  font-size: 14px; /* ajusta no olho */
+  transition: 0.2s;
+}
+
+.sobre-link:hover {
+  opacity: 0.6;
+}
+
+.instagram {
+  font-size: 22px;
+}
+.instagram-icon {
+  width: 24px;
+  height: auto;
+}
+
+/* ANIMAÇÃO */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s ease forwards;
+}
+
+.fade-up.delay-1 {
+  animation-delay: 0.3s;
+}
+
+.fade-up.delay-2 {
+  animation-delay: 0.6s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* HERO / BANNER */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 110px 6% 60px;
+  background: #E7B53A;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+/* setas do fundo */
+    .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("assets/seta.png") left center / cover no-repeat;
+    background-size: 50%; 
+    opacity: 1;
+    z-index: 1;
+    }
+
+/* conteúdo acima do fundo */
+.hero-left,
+.hero-right {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-left img {
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+}
+
+.hero-right {
+  flex: 1;
+  max-width: 560px;
+  text-align: center;
+}
+.hero-left img {
+  width: 100%;
+  max-width: 600px; /* 👈 aumenta aqui */
+  height: auto;
+}
+
+.hero-top-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 1.25;
+  color: #111;
+  text-transform: uppercase;
+  margin: 0 0 20px 0;
+}
+.instagram-icon {
+  font-size: 22px;
+  color: #E7B53A;
+  transition: 0.2s;
+}
+
+.instagram-icon:hover {
+  transform: scale(1.2);
+}   
+
+.impacto-img {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 18px;
+  height: auto;
+}
+
+.hero-bottom-text {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.2;
+  color: #111;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ENQUETE */
+.poll-section {
+  background: #D6ECFF;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.poll-section h1 {
+  margin-bottom: 40px;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.card {
+  width: 180px;
+  height: 240px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0,0,0,0.5);
+  color: white;
+}
+
+.card.selected {
+  outline: 4px solid #E1306C;
+}
+
+.btn {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 30px;
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+.success {
+  margin-top: 15px;
+  display: none;
+}
+
+.coming-soon {
+  background: #D6ECFF;
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.coming-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.coming-icon img {
+  width: 300px; /* menor */
+  height: auto;
+  margin-left: -10px;
+}
+
+.coming-text {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.contato {
+  background: white;
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.contato img {
+  width: 40px;
+  transition: 0.2s;
+}
+
+.contato img:hover {
+  transform: scale(1.2);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
     text-align: center;
+    gap: 30px;
+    padding: 120px 20px 50px;
+    min-height: auto;
+  }
+
+  .hero::before {
+    background-position: left top;
+    background-size: cover;
+  }
+
+  .hero-left img {
+    max-width: 260px;
+  }
+
+  .hero-top-text {
+    font-size: 22px;
+  }
+
+  .hero-bottom-text {
+    font-size: 22px;
+  }
+
+  .impacto-img {
+    max-width: 300px;
+  }
 }
 
+@font-face {
+  font-family: 'Blue Winter';
+  src: url('assets/BlueWinter.ttf') format('truetype');
+  font-weight: 400;
+}
 
-iframe {
-    width: 100%;
-    height: 950px;
-    border: none;
+@font-face {
+  font-family: 'Blue Winter';
+  src: url('assets/BlueWinter.ttf') format('truetype');
+  font-weight: 700;
 }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-
 
 <body>
 
+<header>
+ <div class="logo">
+  <strong class="blue-winter">Cusco Ben</strong>
 
+  <strong class="blue-winter"><a href="sobre1.html" class="sobre-link">Sobre nós</a></strong>
+ </div>
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe1roj7HRZuGu3dD1P-ZtH6XT5XC8EqXNK7mAfA_3-7BdVuaA/viewform"></iframe>
+  <a href="https://instagram.com/cusco_ben" target="_blank">
+    <i class="fa-brands fa-instagram instagram-icon"></i>
+  </a>
+</header>
 
+<section class="hero">
+  <div class="hero-left fade-up">
+    <img src="assets/Logo.png" alt="Cusco Ben">
+  </div>
 
+  <div class="hero-right">
+    <p class="hero-top-text fade-up delay-1">
+      Quando você compra<br>
+      da Cusco Ben, você<br>
+      faz a escolha de<br>
+      converter consumo<br>
+      em uma forma de
+    </p>
+
+    <img class="impacto-img fade-up delay-2" src="assets/impacto.png" alt="Impacto Positivo">
+
+    <p class="hero-bottom-text fade-up delay-2">
+      na causa animal.
+    </p>
+  </div>
+</section>
+
+<section class="coming-soon">
+  <div class="coming-content">
+    
+<div class="coming-icon">
+  <img src="assets/loja.png" alt="Ícone loja">
 </div>
 
+    <p class="coming-text">
+      Loja online <br>em breve.
+    </p>
+
+  </div>
+</section>
+
+<section class="contato">
+  <a href="https://instagram.com/cusco_ben" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+  </a>
+</section>
+
+<script>
+let selected = null;
+
+function selectOption(el) {
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
+  el.classList.add('selected');
+  selected = el.dataset.option;
+}
+
+function submitVote() {
+  document.getElementById("successMsg").style.display = "block";
+
+  setTimeout(() => {
+    window.location.href = "https://instagram.com/cusco_ben";
+  }, 1000);
+}
+</script>
 
 </body>
 </html>
