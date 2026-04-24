@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre nós | Cusco Ben</title>
 
+  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Ícone Instagram -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
     @font-face {
@@ -25,19 +29,24 @@
       color: #111;
     }
 
-    /* HEADER */
-    header {
-      position: absolute;
-      top: 0;
-      width: 100%;
-      padding: 15px 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: white;
-      box-sizing: border-box;
-      z-index: 10;
-    }
+    /* HEADER (igual index) */
+header {
+  position: fixed; /* 👈 ESSA É A CHAVE */
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(0, 0, 0);
+  box-sizing: border-box;
+  z-index: 10;
+}
+.blue-winter {
+  font-family: 'Blue Winter', sans-serif;
+  text-transform: uppercase;
+}
 
     .logo {
       display: flex;
@@ -54,28 +63,36 @@
       font-family: 'Blue Winter', sans-serif;
       font-weight: 700;
       letter-spacing: 1px;
-      color: #111;
+      color: #E7B53A;
     }
 
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .nav-link {
+    .sobre-link {
       font-family: 'Blue Winter', sans-serif;
       font-weight: 700;
       letter-spacing: 1px;
       text-decoration: none;
-      color: #111;
+      color: #E7B53A;
+      margin-left: 10px;
       font-size: 14px;
+    }
+.logo-text {
+  text-decoration: none;
+  color: #111; /* ou inherit */
+}
+    .instagram-icon {
+      font-size: 22px;
+      color: #E7B53A;
       transition: 0.2s;
     }
 
-    .nav-link:hover {
-      opacity: 0.6;
+    .instagram-icon:hover {
+      transform: scale(1.2);
     }
+  .sobre p {
+  margin: 0 0 22px;
+  font-size: 20px;
+  line-height: 1.8;
+}
 
     /* CONTEÚDO */
     .sobre {
@@ -83,27 +100,48 @@
       padding: 120px 20px 80px;
       display: flex;
       justify-content: center;
-      background: #E7B53A;
     }
 
     .sobre-content {
-      width: 100%;
       max-width: 760px;
+      width: 100%;
     }
 
     .sobre h1 {
       margin: 0 0 30px;
       font-family: 'Blue Winter', sans-serif;
       font-size: 42px;
-      color: #111;
     }
 
-    .sobre p {
-      margin: 0 0 22px;
-      font-size: 20px;
-      line-height: 1.8;
-      color: #111;
-    }
+   .sobre p {
+  margin: 0 0 22px;
+  font-size: 20px;
+  line-height: 1.8;
+  font-family: Georgia, 'Times New Roman', serif; /* 👈 AQUI */
+}
+.video-container {
+  margin: 60px auto 0; /* 👈 centraliza */
+  width: 100%;
+  max-width: 760px;
+  aspect-ratio: 16 / 9;
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  display: block;
+}
+.video-thumb {
+  margin: 60px auto;
+  max-width: 1000px; /* aumenta aqui */
+  width: 100%;
+}
+.video-thumb img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
 
     /* MOBILE */
     @media (max-width: 768px) {
@@ -133,22 +171,26 @@
 
 <body>
 
+  <!-- HEADER -->
   <header>
     <div class="logo">
-      <a href="index.html">
-        <img src="assets/Logo.png" alt="Logo">
-      </a>
-      <strong>Cusco Ben</strong>
+      <a href="index.html" class="logo-text">
+  <<strong class="blue-winter">Cusco Ben</strong>
+</a>
+      <a href="sobre1.html" class="sobre-link"><strong class="blue-winter">Sobre nós</a></strong>
+
     </div>
 
-    <div class="nav">
-      <a href="index.html" class="nav-link">Início</a>
-    </div>
+    <a href="https://instagram.com/cusco_ben" target="_blank">
+      <i class="fa-brands fa-instagram instagram-icon"></i>
+    </a>
   </header>
 
+  <!-- CONTEÚDO -->
   <section class="sobre">
     <div class="sobre-content">
-      <h1>Sobre nós</h1>
+      <strong class="blue-winter"><h1>Sobre nós</h1></strong>
+      
 
       <p>Todos os dias vemos histórias de abandono, negligência e sofrimento.</p>
 
@@ -197,9 +239,13 @@
       <p>Porque quando muita gente que se importa começa a agir junto, as possibilidades crescem.</p>
 
       <p>E a gente descobre que pode fazer mais do que imaginava.</p>
+    <div class="sobre-content">
+<p>Assista o nosso vídeo manifesto:</p>
 
-    </div>
-  </section>
-
+<div class="video-thumb">
+  <a href="https://www.youtube.com/watch?v=GU78rfgmqak" target="_blank">
+    <img src="https://img.youtube.com/vi/GU78rfgmqak/hqdefault.jpg" alt="Vídeo">
+  </a>
+</div>
 </body>
 </html>
